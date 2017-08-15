@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'kotlin-android-extensions'
-apply plugin:'kotlin-android'
+//快捷的findviewfindid操作，建议加上
+apply plugin: 'kotlin-android-extensions'
+//必须
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 26
@@ -24,11 +26,11 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
+
+
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:1.0+"
-
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.5'
     compile 'com.google.code.gson:gson:2.6.+'
     compile 'com.android.support:recyclerview-v7:26.+'
-
 }

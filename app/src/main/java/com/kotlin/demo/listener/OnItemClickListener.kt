@@ -7,7 +7,6 @@ import android.view.View
  */
 interface OnItemViewClickListener<in T> {
 
-
       fun  onItemViewClick( t : T?, clickView : View?)
 
 }

@@ -29,11 +29,11 @@ class HomeAdapter<T>(context : Context,onItemViewClickListener : OnItemViewClick
 
     override fun onBindViewHolder(holder: HomeAdapter.HomeViewHolder?, position: Int) {
         var item : Item =  items.get(position) as Item
-        holder?.name?.setText(item.name)
+        holder!!.name!!.setText(item.name)
 
         var onRecycleViewItemClickListener : OnRecycleViewItemClickListener<Item> = OnRecycleViewItemClickListener<Item>(onItemViewClickListener,item, holder?.itemRecycleView)
 
-        holder?.itemRecycleView?.setOnClickListener(onRecycleViewItemClickListener)
+        holder!!.itemRecycleView!!.setOnClickListener(onRecycleViewItemClickListener)
     }
 
 
@@ -44,7 +44,7 @@ class HomeAdapter<T>(context : Context,onItemViewClickListener : OnItemViewClick
     }
 
     override fun getItemCount(): Int {
-       return items?.size
+       return items!!.size
     }
 
 //    class HomeViewHolder : RecyclerView.ViewHolder {

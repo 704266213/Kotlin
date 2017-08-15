@@ -1,5 +1,6 @@
 package com.kotlin.demo
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -11,10 +12,12 @@ import android.widget.Toast
 import com.google.gson.Gson
 import com.kotlin.demo.bean.UserModel
 import com.google.gson.reflect.TypeToken
+import com.kotlin.demo.activity.SettingActivity
 import com.kotlin.demo.adapter.HomeAdapter
 import com.kotlin.demo.bean.BaseModel
 import com.kotlin.demo.bean.Item
 import com.kotlin.demo.listener.OnItemViewClickListener
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 
@@ -27,9 +30,12 @@ class MainActivity : AppCompatActivity() , View.OnClickListener, OnItemViewClick
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val kotlin = findViewById(R.id.kotlin) as TextView
-//        kotlin.setOnClickListener(this)
+
         kotlin.setText("kotlin")
+
+//        val kotlin = findViewById(R.id.kotlin) as TextView
+//        kotlin.setOnClickListener(this)
+//        kotlin.setText("kotlin")
 
         val json : String = "{\n" +
                 "    \"code\": 200,\n" +
@@ -43,7 +49,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener, OnItemViewClick
 
         initData()
 
-        val recyclerView = findViewById(R.id.recyclerView) as RecyclerView
+//        val recyclerView = findViewById(R.id.recyclerView) as RecyclerView
         recyclerView!!.layoutManager = LinearLayoutManager(this)
         var homeAdapter : HomeAdapter<Item> = HomeAdapter(this,this)
         recyclerView.adapter = homeAdapter
@@ -83,10 +89,9 @@ class MainActivity : AppCompatActivity() , View.OnClickListener, OnItemViewClick
         }
     }
 
-
-
     override fun onItemViewClick(t: Item?, clickView: View?) {
         Toast.makeText(this,t?.name,Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this,SettingActivity::class.java))
     }
 
 }
